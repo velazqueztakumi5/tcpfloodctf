@@ -1,6 +1,6 @@
 export default function handler(req, res) {
   const FLAG = process.env.CTF_FLAG;
-  const roll = Math.floor(Math.random() * 1000) + 1;
+  const roll = Math.floor(Math.random() * 1) + 1;
   const result = roll === 1 ? FLAG : randomString(32);
   res.setHeader("Content-Type", "text/plain");
   res.send(result);

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>lucky</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: monospace;
+      background: #0d0d0d;
+      color: #c8c8c8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    #token {
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      word-break: break-all;
+      max-width: 600px;
+      text-align: center;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <span id="token">...</span>
+  <script>
+    fetch("/api/lucky")
+      .then(r => r.text())
+      .then(t => { document.getElementById("token").textContent = t; })
+      .catch(() => { document.getElementById("token").textContent = "error"; });
+  </script>
+</body>
+</html>
